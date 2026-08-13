@@ -1,0 +1,27 @@
+h2 {
+    color: darkgreen;
+}
+
+.Success {
+    color: black;
+    font-size: medium;
+    width: 350px;
+    padding: 20px;
+    background: lightgreen;
+}
+
+.Error {
+    color: black;
+    font-size: medium;
+    width: 350px;
+    padding: 20px;
+    background: red;
+}
+
+.Warning {
+    color: rgb(87, 11, 217);
+    font-size: medium;
+    width: 350px;
+    padding: 20px;
+    background: yellow;
+}

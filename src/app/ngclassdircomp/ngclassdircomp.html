@@ -1,0 +1,23 @@
+<p>ngclassdircomp works!</p>
+
+<input type="radio" name="color" (click)="success()" /> Success
+<input type="radio" name="color" (click)="warning()" /> Warning
+<input type="radio" name="color" (click)="err()" />Error
+
+<div>
+<b>Page Hits: {{ pageHits() }}</b>
+</div>
+
+<h1 [ngClass]="{'Success': isSuccess, 
+    'Error': isError,
+    'Warning': isWarning
+}" >Sample Header - with ngClass directive</h1>
+
+<h1 [ngStyle]="{'background-color': 'orange'}">
+    Another style header
+</h1>
+
+
+<h1 [class.Success]="isSuccess" [class.Warning]="isWarning" [class.Error]="isError">
+    Sample Header - with class binding  
+</h1>

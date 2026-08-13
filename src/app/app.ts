@@ -1,9 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { Registration } from './registration/registration';
+import { Ngclassdircomp } from './ngclassdircomp/ngclassdircomp';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, LoginComponent, Registration, Ngclassdircomp],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
