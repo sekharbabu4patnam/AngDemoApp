@@ -1,0 +1,25 @@
+<div>
+  <h2>Customer Service API</h2>
+  <p>This is the customer component.</p>
+  <div>
+    <button class="login-btn" (click)="onShowAllCustomers()">
+      Show All Customers
+    </button>
+  </div>
+  <div><br /></div>
+    <div>
+        <label>Customer ID:</label>
+        <input type="number" [(ngModel)]="custId" placeholder="Enter Customer ID" />
+        <button class="login-btn" (click)="onShowCustomerDetailsById()">
+        Show Customer Details By ID
+        </button>   
+</div>
+
+<div><br /></div>
+  <div>
+    <label>Customer name:</label>
+    <input type="text" [(ngModel)]="customerName" placeholder="Enter Customer Name" />  
+    <button class="login-btn" (click)="onShowCustomerDetailsByName()">
+        Show Customer Details By Name
+    </button>
+  </div>
