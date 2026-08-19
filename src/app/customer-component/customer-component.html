@@ -1,25 +1,66 @@
+<div class="flex-container">
+<div class="login-container">
+  <h1>Customer Service</h1>
+  <p>Use the buttons below to interact with the Customer Service API.</p>
 <div>
   <h2>Customer Service API</h2>
-  <p>This is the customer component.</p>
   <div>
     <button class="login-btn" (click)="onShowAllCustomers()">
-      Show All Customers
+      All Customers
     </button>
   </div>
   <div><br /></div>
     <div>
-        <label>Customer ID:</label>
-        <input type="number" [(ngModel)]="custId" placeholder="Enter Customer ID" />
+    <div class="form-group">
+      <label class="form-label" for="custId">Customer ID:</label>
+        <input id="custId"
+        name="custId"
+        class="login-input"type="number" 
+        [(ngModel)]="custId" 
+        placeholder="Enter Customer ID" />
+        
         <button class="login-btn" (click)="onShowCustomerDetailsById()">
-        Show Customer Details By ID
+        By ID
         </button>   
+        </div>
 </div>
 
 <div><br /></div>
-  <div>
-    <label>Customer name:</label>
-    <input type="text" [(ngModel)]="customerName" placeholder="Enter Customer Name" />  
+  <div class="form-group">
+      <label class="form-label" for="customerName">Customer name:</label>
+    <input type="text" id="customerName"
+        name="customerName"
+        class="login-input"
+        [(ngModel)]="customerName" 
+        placeholder="Enter Customer Name" />  
+  
     <button class="login-btn" (click)="onShowCustomerDetailsByName()">
-        Show Customer Details By Name
+        By Name
     </button>
+    </div>
   </div>
+  </div>
+<div><br /></div>
+  <div class="login-container">
+    <h1>Customer Service Response</h1>
+    <!-- {{customerServiceResponse}} -->
+     @for (customer of customerServiceResponse; track $index) {
+        <div class="card" style="width: 18rem; border: 2px solid rgba(162, 33, 33, 0.5); padding: 1rem; margin-bottom: 1rem;">
+        <p>Customer Id: {{customer.custId}}</p>
+        <p>Customer Name: {{customer.custName}}</p>
+        @if(customer.custAddr) {
+          <p>Customer Address : </p>
+          <p>House Number: {{customer.custAddr.houseNo}}</p>
+          <p>Address Line 1: {{customer.custAddr.addrLine1}}</p>
+          <p>Address Line 2: {{customer.custAddr.getAddrLine2}}</p>
+          <p>City: {{customer.custAddr.city}}</p>
+          <p>Pin Code: {{customer.custAddr.pincode}}</p>
+          <p>State: {{customer.custAddr.state}}</p>
+        } @else {
+          <p>Customer Address : Not Available</p>
+        }
+        </div>
+     }
+
+  </div>
+</div>
