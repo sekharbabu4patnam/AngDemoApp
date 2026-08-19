@@ -1,9 +1,6 @@
-<div class="flex-container">
+ <h2>Customer Service API</h2>
 <div class="login-container">
-  <h1>Customer Service</h1>
-  <p>Use the buttons below to interact with the Customer Service API.</p>
-<div>
-  <h2>Customer Service API</h2>
+ 
   <div>
     <button class="login-btn" (click)="onShowAllCustomers()">
       All Customers
@@ -39,13 +36,15 @@
     </button>
     </div>
   </div>
-  </div>
+
 <div><br /></div>
   <div class="login-container">
     <h1>Customer Service Response</h1>
+    </div>
+    <div class="login-container">
     <!-- {{customerServiceResponse}} -->
      @for (customer of customerServiceResponse; track $index) {
-        <div class="card" style="width: 18rem; border: 2px solid rgba(162, 33, 33, 0.5); padding: 1rem; margin-bottom: 1rem;">
+        <div class="card" style="width: 18rem; border: 1px solid rgba(162, 33, 33, 0.5); padding: 1rem; margin-bottom: 1rem;">
         <p>Customer Id: {{customer.custId}}</p>
         <p>Customer Name: {{customer.custName}}</p>
         @if(customer.custAddr) {
@@ -63,4 +62,3 @@
      }
 
   </div>
-</div>

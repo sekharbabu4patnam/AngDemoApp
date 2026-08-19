@@ -30,7 +30,7 @@ export class CustomerComponent {
     this.customerService.getCustomerById(this.custId).subscribe((customer) => {
       console.log('Retrieved customer details:', customer);
      // this.customerServiceResponse = JSON.stringify(customer, null, 2); // Store the response as a string
-     this.customerServiceResponse = customer; // Store the response as an object to iterate over in the template
+     this.customerServiceResponse = [customer]; // Store the response as an object to iterate over in the template
     });
   }
 
