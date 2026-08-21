@@ -14,6 +14,14 @@ export class CustomerService {
     return this.httpClient.post('http://localhost:8080/api/v1/customers', newCustomer);
   }
 
+  editCustomer(updatedCustomer: { custAddr: { addressId: number; houseNo: string; addrLine1: string; addrLine2: string; city: string; pincode: string; state: string; }; custId: number; custName: string; }) : Observable<any> { 
+    return this.httpClient.put('http://localhost:8080/api/v1/customers/', updatedCustomer);
+  }
+
+  removeCustomer(custId: number) : Observable<any> { 
+    return this.httpClient.delete('http://localhost:8080/api/v1/customers/'+ custId);
+  }
+
   getAllCustomers(): Observable<any[]> {
     console.log('Fetching all customers from the API...');
     // Simulate an API call and return an Observable

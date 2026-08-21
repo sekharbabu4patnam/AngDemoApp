@@ -56,6 +56,40 @@ export class CustomerComponent {
     });
   }
 
+  onEditCustomer(): void {
+    console.log('Edit customer button clicked');
+    // Implement logic to edit the specified customer
+    // You can use the customerService to make an API call for editing
+  const newCustomer = {
+     
+      custAddr: {
+        addressId: this.addressId,
+        houseNo: this.houseNo,
+        addrLine1: this.addrLine1,
+        addrLine2: this.addrLine2,
+        city: this.city,
+        pincode: this.pincode,
+        state: this.state
+      },
+       custId: this.custId,
+      custName: this.custName
+    };
+
+    this.customerService.editCustomer(newCustomer).subscribe((response) => {
+      console.log('Customer edited successfully:', response);
+      // Handle the response, e.g., show a success message or update the UI
+      this.crudResponse = response; // Store the response for display in the template
+    });
+  }
+
+  onRemoveCustomer(): void {
+    console.log('Remove customer button clicked');  
+    this.customerService.removeCustomer(this.custId).subscribe((response) => {
+      console.log('Customer removed successfully:', response);  
+    });
+  }
+
+
   onAddCustomer(): void {
     console.log('Add customer button clicked');
     const newCustomer = {
