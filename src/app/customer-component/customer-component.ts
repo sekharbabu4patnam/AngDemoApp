@@ -13,8 +13,21 @@ export class CustomerComponent {
 
   private customerService = inject(CustomerService);
   customerServiceResponse: any; // Variable to hold the response from the service
-  custId: number = 0; // Example customer ID, you can change this as needed
+  customerId: number = 0; // Example customer ID, you can change this as needed
   customerName: string = ''; // Example customer name, you can change this as needed
+
+  custId: number = 0; // Example customer ID, you can change this as needed
+  custName: string = ''; // Example customer name, you can change this as needed
+  addressId: number = 0; // Example address ID, you can change this as needed
+  houseNo: string = ''; // Example house number, you can change this as needed
+  addrLine1: string = ''; // Example address line 1, you can change this as needed
+  addrLine2: string = ''
+  city: string = ''; // Example city, you can change this as needed
+  pincode: string = ''; // Example pin code, you can change this as needed
+  state: string = ''; // Example state, you can change this as needed
+
+  crudResponse: any; // Variable to hold the response from the service for CRUD operations
+
   onShowAllCustomers(): void {
     console.log('Show all customers button clicked');
     this.customerService.getAllCustomers().subscribe((customers) => {
@@ -43,4 +56,27 @@ export class CustomerComponent {
     });
   }
 
-}
+  onAddCustomer(): void {
+    console.log('Add customer button clicked');
+    const newCustomer = {
+     
+      custAddr: {
+        addressId: this.addressId,
+        houseNo: this.houseNo,
+        addrLine1: this.addrLine1,
+        addrLine2: this.addrLine2,
+        city: this.city,
+        pincode: this.pincode,
+        state: this.state
+      },
+       custId: this.custId,
+      custName: this.custName
+    };
+
+    this.customerService.addCustomer(newCustomer).subscribe((response) => {
+      console.log('Customer added successfully:', response);
+      // Handle the response, e.g., show a success message or update the UI
+      this.crudResponse = response; // Store the response for display in the template
+    });
+  }
+  }

@@ -7,8 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
+
   private httpClient = inject(HttpClient);
   
+  addCustomer(newCustomer: { custAddr: { addressId: number; houseNo: string; addrLine1: string; addrLine2: string; city: string; pincode: string; state: string; }; custId: number; custName: string; }) : Observable<any> { 
+    return this.httpClient.post('http://localhost:8080/api/v1/customers', newCustomer);
+  }
+
   getAllCustomers(): Observable<any[]> {
     console.log('Fetching all customers from the API...');
     // Simulate an API call and return an Observable
